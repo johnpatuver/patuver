@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patuvêr Downloads</title>
+    <meta name="description" content="Site de downloads da Patuvêr com programas, áudios e links úteis.">
+    <link rel="shortcut icon" href="Arquivos/Imagens/Favico/Pato andando.gif" type="image/x-icon">
+    <style>
+
+        
+ 
+        /* codigos para deixar  a página responsiva  HEHEH */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding-top: 80px; /* Ajusta o padding-top para compensar o cabeçalho fixo */
+            background-color: #f2f2f2;
+        }
+
+        header {
+            background-color: #437af3;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed; /* Fixa o cabeçalho no topo */
+            width: 100%; /* Define a largura total */
+            top: 0; /* Alinha o cabeçalho no topo */
+            z-index: 1000; /* Define a ordem de empilhamento */
+        }
+
+        nav {
+            background-color: #1e58f8;
+            overflow: hidden;
+            text-align: center; /* Centraliza as guias */
+            position: fixed; /* Fixa as guias no topo */
+            width: 100%; /* Define a largura total */
+            top: 120px; /* Define a posição da nav abaixo do cabeçalho */
+            z-index: 1000; /* Define a ordem de empilhamento */
+        }
+
+        nav a {
+            display: inline-block; /* Altera para display inline-block */
+            color: white;
+            text-align: center;
+            padding: 14px 20px; /* Ajusta o espaçamento horizontal */
+            text-decoration: none;
+            font-size: 17px;
+            transition: transform 0.2s; /* Adiciona transição de 0.2s para suavizar a animação */
+        }
+
+        nav a:hover {
+            background-color: #1700e2;   /* Nessa opção, eu mudo a cor do fundo da caixa ao passar o mouse sobre */ 
+            color: #f8f8f8;
+            transform: translate(0, -2px); /* Faz a guia vibrar para cima ao passar o mouse */
+        }
+        .download-item {
+            margin-bottom: 13px;  /* Nessa opção eu altero o tamanho abaixo entre as caixas */
+            border: 1px solid #ddd; /* Nessa opção eu mudo o tamanho da sombra */
+            padding: 10px; /* Nessa opção eu altero o tamanho das caixas */
+            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 11px; /* Nessa opção eu deixo mais aredondada */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: calc(33.33% - 20px);
+            display: inline-block;
+            margin-right: 0px; /* Nessa opção, eu altero o tamanho lateral esquerda entre as caixas. */
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+        .download-item:nth-child(3n) {
+            margin-right: 0;
+        }
+        .download-item:hover {
+            transform: translateY(-3px);
+        }
+        .download-item img {
+            float: left;
+            margin-right: 20px;  /* Nessa opção eu defino o espaço entre foto e nome */
+            border-radius: 20px; /* Nessa opção eu deixo as fotos quadradas ou redondas dos arquivos */
+        }
+        .download-item h3 {
+            margin-top: 10; /* Nessa opção eu o botão Donwload o lugar  */
+        }
+        .download-button {
+        background-color: #28a745;   /*Aqui eu defini a cor verde para o botão HEHEHE */
+        color: #eeecec;
+        border: none;
+        padding: 10px 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .download-button:hover {
+        background-color: #29be15; /* Aqui eu deixo ele verdinho ao passar o mouse sobre HEHEHE */
+    }
+
+    .link-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        .link-list li {
+            margin-bottom: 10px;
+        }
+        .link-list li a {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #0044ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .link-list li a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+         /* Adicionando regras de mídia para telas menores */
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: row; /* Altera a direção para linha */
+                flex-wrap: nowrap; /* Impede a quebra de linha */
+                overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+                justify-content: center; /* Centraliza os itens */
+            }
+            nav a {
+                flex: 1; /* Distribui igualmente o espaço entre os itens */
+                min-width: 0; /* Remove a largura mínima dos itens */
+            }
+            .download-item {
+                width: 100%; /* Define a largura total para os itens */
+                margin-right: 0; /* Remove a margem direita */
+            }
+        } 
+
+
+        .content-section {
+            padding: 20px;
+            margin-top: 100px; /* Define o espaço entre o conteúdo e o cabeçalho fixo */
+        }
+
+        footer {
+            background-color: #0044ff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            bottom: 0;
+            position: fixed; /* Fixa o rodapé na parte inferior */
+            z-index: 1000; /* Define a ordem de empilhamento */
+        }
+
+          /* Aqui eu edito o CSS da caixa de senha HEHEHE */
+          #dialog-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Arquivos/Imagens/fundo\ 2.jpg') center center no-repeat;
+    background-size: cover; /* garante que a imagem cubra todo o overlay */
+    z-index: 9999;
+}
+    #dialog-box {
+        background: #fafafa;
+        border-radius: 5px;
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+        border: 2px solid #000; /* borda preta */
+    }
+
+
+    </style>
+</head>
+<body>
+
+
+
+    <div id="dialog-overlay">
+        <div id="dialog-box">
+            <h1>Insira a Senha <img src="Arquivos/Imagens/Favico/Pato andando.gif" alt="GIF" width="50" height="50"></h1>
+            <input type="password" id="password">
+            <button onclick="checkPassword()">Acessar</button>
+        </div>
+    </div>
+    
+    <script>
+        
+        const senhaCorreta = "1554";
+    
+        // Aqui verifico a senha
+        function checkPassword() {
+            const passwordInput = document.getElementById("password").value;
+            if (passwordInput === senhaCorreta) {
+                // com a senha correta, permitir acesso ao site HEHE 
+                document.getElementById("dialog-overlay").style.display = "none";
+            } else {
+                // Senha errada e para mostrar mensagem de erro
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+    
+        // Aqui e para quando eu digitar o enter clicar no botão Acessar
+        document.getElementById("password").addEventListener("keyup", function(event) {
+            // aqui verifica se clicou no  "Enter" (código 13)
+            if (event.keyCode === 13) {
+                // aqui verifica a senha digitada
+                checkPassword();
+            }
+        });
+    </script>
+
+
+
+
+
+    <header>
+        <h1>Patuvêr Downloads <img src="Arquivos/Imagens/Favico/Pato andando.gif" alt="GIF" width="50" height="50"></h1>
+    </header>
+
+    <nav>
+        <a href="#" onclick="showPage('contact')">Unicheff</a>
+        <a href="#" onclick="showPage('programs')">Programas</a>
+        <a href="#" onclick="showPage('services')">Serviços</a>
+        <a href="#" onclick="showPage('Ativadores')">Ativadores</a>
+     
+        <a href="#" onclick="showPage('links')">Links</a>
+        
+    </nav>
+
+    <!-- Seções existentes -->
+    <section id="contact" class="content-section" style="display: none;">
+        <h2> Versões Unicheff Sistemas</h2>
+        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Primeira.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Primeira Instalção</h3>
+                <p>Instalador Unicheff. <br> <span style="color: red; font-weight: bold;">Instalador</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/Instalação UniChef (Para primeira instalacao) 2016.71.exe" download>Baixar</a>
+            </div>
+        </div>
+         
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Atualizador 6.0.2024.1</h3>
+                <p>Instalador do Unicheff 6.0.2024.1 <br> <span style="color: red; font-weight: bold;">Instalador</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/Atualizador 6.0.2024.1.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.23</h3>
+                <p>Versão Unicheff 6.0.2024.23 - Win10+ <br> <span style="color: rgb(0, 81, 255); font-weight: bold;">Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.23 - Win10+.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.22</h3>
+                <p>Versão Unicheff 6.0.2024.22 - Win10+ <br> <span style="color: rgb(0, 81, 255); font-weight: bold;">Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.22 - Win10+.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.21</h3>
+                <p>Versão do Unicheff 6.0.2024.21 - Win10+ <br> <span style="color: rgb(0, 81, 255); font-weight: bold;">Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.21 - Win10+.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.20</h3>
+                <p>Versão do Unicheff 6.0.2024.20 <br> <span style="color: rgb(0, 81, 255); font-weight: bold;">Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.20 - Win10+.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.09</h3>
+                <p>Versão do Unicheff 6.0.2024.09 <br> <span style="color: rgb(0, 81, 255); font-weight: bold;"> Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.09.zip" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Unicheff 6.0.2024.02</h3>
+                <p>Versão do Unicheff 6.0.2024.02 - Win10+.zip <br> <span style="color: rgb(0, 81, 255); font-weight: bold;"> Atualização</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2024.02 - Win10+.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Atualizador 6.0.2023.200</h3>
+                <p>Instalador do Unicheff 6.0.2023.200 <br> <span style="color: red; font-weight: bold;">Instalador</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/Atualizador 6.0.2023.200.exe" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/iconCheff.ico" alt="Imagem do Download 2" width="100">
+            <div>
+                <h3>Unicheff 6.0.2023.346</h3>
+                <p>Versão 6.0.2023.346 - Win10+.zip. <br> <span style="color: rgb(0, 81, 255); font-weight: bold;"> Atualização</span>.</p> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Unicheff 6.0.2023.346 - Win10+.zip" download>Baixar</a>
+            </div>  
+
+       </form>
+    </section>
+
+    <section id="programs" class="content-section">
+        <h2>Programas</h2>        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Defender Control v1.9.png" alt="Imagem do Download 1" width="100">
+            <div>
+                <h3>Defender Control v1.9</h3>
+                <p>Desativa o Windows Defender gratuitamente.</p>
+                <a class="download-button" href="Arquivos/Donwloads/dControl.zip" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Office2013.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3> Office 2013 </h3>
+                <p>O Microsoft Office 2013 é um pacote suíte de aplicativos para escritório.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Office 2013.rar" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Navicat Premium16.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Navicat Premium 16 </h3>
+                <p>Navicat Premium é uma ferramenta de desenvolvimento de banco de dados.</p>
+                <a class="download-button" href="Arquivos/Donwloads/AbbasPC.Net_Navicat Premium 16.1.0 - Copia.rar" download>Baixar</a>
+            </div>
+        </div>
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Office2019.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Office 2019</h3>
+                <p> O Microsoft Office 2019 é um pacote suíte de aplicativos para escritório.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Professional2019Retail.img" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/teamViewer.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>TeamViewer 15</h3>
+                <p>Instalador do TeamViewer 15 que permite acessar sem conta.</p>
+                <a class="download-button" href="Arquivos/Donwloads/teamviewer-15-35-7.exe" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Anydesk.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>AnyDesk 6.0</h3>
+                <p>Instalador do AnyDesk que permite acessar sem conta.</p>
+                <a class="download-button" href="Arquivos/Donwloads/AnyDesk.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/driverbooster.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Driver Booster Pro 10.3</h3>
+                <p> Driver Booster Pro é a ferramenta de atualização de driver.</p>
+                <a class="download-button" href="Arquivos/Donwloads/AbbasPC.Net_IObit Driver Booster Pro 10.3.0.124.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/winrar.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>WinRAR 7.0</h3>
+                <p>WinRAR é um software compactador e descompactador de dados.</p>
+                <a class="download-button" href="Arquivos/Donwloads/winrar-x64br.exe" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Mysql ARM.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Mysql 5.6.10.1</h3>
+                <p>Mysql para processadores de arquitetura ARM. <span style="color: rgb(230, 39, 39); font-weight: bold;">  ( Hyorrana )</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/mysql-installer-community-5.6.10.1.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Marcola.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Software Marcola</h3>
+                <p>Remove todos os serviços da unitech instalados. <br> <span style="color: rgb(230, 39, 39); font-weight: bold;"> ( Feito por Marcola )</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/Software Marcola.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/MiniTool Partition Wizard.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>MiniTool Partition Wizard 12.8</h3>
+                <p>Programa de gerenciamento de partição de disco rígido.</p>
+                <a class="download-button" href="Arquivos/Donwloads/MiniTool Partition Wizard 12.8.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Lazesoft.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Lazesoft Recovery Suite 4.5</h3>
+                <p>Remove senha do Windows, clona discos, recupera arquivos do HD/SSD.</p>
+                <a class="download-button" href="Arquivos/Donwloads/lsrshsetup.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Printer.bmp" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Printer Test para Elgin i8</h3>
+                <p>Software Printer Test para Elgin i8.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Elgin i8 Printer Test V3.2.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/imagemresizer.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Image Resizer </h3>
+                <p>Redimensionador de imagem.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Image Resizer.rar" download>Baixar</a>
+            </div>
+        </div>
+        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/ApowerREC.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>ApowerREC</h3>
+                <p>ApowerREC é um programa de grava de tela</p>
+                <a class="download-button" href="Arquivos/Donwloads/ApowerREC.1.4.12.6.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/lightshot.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Lightshot </h3>
+                <p>A forma mais rápida de fazer uma captura de tela personalizável.</p>
+                <a class="download-button" href="Arquivos/Donwloads/setup-lightshot.rar" download>Baixar</a>
+            </div>
+        </div>
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Recoverit.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Wondershare Recoverit 11.0.0.13</h3>
+                <p>O Wondershare Recoverit é um software de recuperação de dados.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Wondershare Recoverit 11.0.0.13 Full Version.zip" download>Baixar</a>
+            </div>
+        </div>
+ 
+        <div class="download-item">
+            <img src="Arquivos/Imagens/audacity.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Audacity 3.4.2</h3>
+                <p>Audacity é um software livre de edição digital de áudio.</p>
+                <a class="download-button" href="Arquivos/Donwloads/audacity-win-3.4.2-64bit.exe" download>Baixar</a>
+            </div>
+        </div> 
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/AOMEI Partition Assistant 10.0.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>AOMEI Partition Assistant 10.0</h3>
+                <p>AOMEI Partition e um Gerenciador de partições.</p>
+                <a class="download-button" href="Arquivos/Donwloads/AOMEI Partition Assistant 10.0.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/ImageUSB.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>ImageUSB v 1.5.1003</h3>
+                <p>Ele foi projetado para fazer cópias de arquivos USB com eficiência no nível de bits exato.</p>
+                <a class="download-button" href="Arquivos/Donwloads/imageusb-1-5-1006.zip" download>Baixar</a>
+            </div>
+        </div>
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Macrium.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Macrium Reflect</h3>
+                <p>Macrium Reflect é um utilitário de backup para Microsoft Windows</p>
+                <a class="download-button" href="Arquivos/Donwloads/v7.2.4228_reflect_setup_free_x64.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/EaseUS backup.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>EASEUS Todo Backup 16.1</h3>
+                <p>Software para criar backups individuais de discos rígidos completos e diretórios e arquivos.</p>
+                <a class="download-button" href="Arquivos/Donwloads/EaseUS Todo Backup 16.1 Multilingual.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/diskgenios.jpg" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>DiskGenius V5.5.1.1508</h3>
+                <p>DiskGenius é um software para gerenciamento de partições.</p>
+                <a class="download-button" href="Arquivos/Donwloads/DiskGenius.rar" download>Baixar</a>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/WinSetupFromUSB.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>WinSetupFromUSB 1.10</h3>
+                <p>E um software que permite no mesmo pendrive criar um disco MBR ou GPT.</p>
+                <a class="download-button" href="Arquivos/Donwloads/WinSetupFromUSB 1.10.10.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/dism.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Dism++10.1.1002</h3>
+                <p>Dism ++ é um poderoso utilitário usado para manutenção de sistemas Windows e manipulação de imagem de instalação.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Dism++10.1.1002.1B.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Daruma.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Daruma Dr 800 Termica</h3>
+                <p>Driver da Impressora.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Daruman dr800.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/PhotoScape.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>PhotoScape 3.7</h3>
+                <p>Uma suite completa para edição e gerenciamento de imagens..</p>
+                <a class="download-button" href="Arquivos/Donwloads/PhotoScapeSetup_V3.7.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/TreeSize.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>TreeSizer Free V4.6.2</h3>
+                <p> TreeSize mostra de maneira detalhada o que está ocupando espaço no HD ou SSD.</p>
+                <a class="download-button" href="Arquivos/Donwloads/TreeSizeFreeSetup.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/IPscanner.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>IP Scanner v2.5.1</h3>
+                <p>Mostra todos os dispositivos de rede, lhe dá acesso às pastas compartilhadas, e pode até mesmo desligar computadores remotamente</p>
+                <a class="download-button" href="Arquivos/Donwloads/Advanced_IP_Scanner_2.5.4594.1.exe" download>Baixar</a>
+            </div>
+        </div>
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/HeiDoc.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>HeiDoc 8.46</h3>
+                <p>Esta ferramenta permite uma maneira fácil e confortável de baixar imagens de disco (ISO) windows Office .</p>
+                <a class="download-button" href="Arquivos/Donwloads/Windows-ISO-Downloader.exe" download>Baixar</a>
+            </div>
+        </div>
+        
+    
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/driverbooster11.jpg.png" alt="Imagem do Download 3" width="100">
+            <div>
+                <h3>Driver Booster Pro v11.2.0.46 PT-BR</h3>
+                <p>aplicativo de software abrangente projetado para atualizar drivers antigos ou desatualizados no Windows.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Driver Booster Pro 11.2.0.46.rar" download>Baixar</a>
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+
+    
+    <section id="audios" class="content-section" style="display: none;">
+        <h2>Áudios</h2>
+        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Pix.png" alt="Imagem do Áudio 1" width="100">
+            <div>
+                <h3>Eu paguei via pix!  pelo amor de Deus.</h3>
+                <p>Pix.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Eu paguei via pix!  pelo amor de Deus..mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/bucha.png" alt="Imagem do Áudio 1" width="100">
+            <div>
+                <h3>Ai e bucha</h3>
+                <p>Bucha.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Ai e bucha.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/bentivi.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Bem-te-vi</h3>
+                <p>canto Bem-te-vi.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Benti-vi.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Bug.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Cheio de bug</h3>
+                <p>Bug.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Cheio de bug.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/lixo.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Não ta prestando nem para jogar no lixo.</h3>
+                <p>Lixo .</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Não ta prestando nem pra jogar no lixo.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+         
+        <div class="download-item">
+            <img src="Arquivos/Imagens/fatura.png" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Eu paguei a Fatura.</h3>
+                <p>Fatura.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Eu paguei a Fatura.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/john.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Ei John</h3>
+                <p>John.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Ei John.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Pedro não responde.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Mas o pedro eu falo falo ele não responde.</h3>
+                <p>Pedro não responde.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Mas o pedro eu falo falo ele não responde..mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/pix 2.png" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Eu paguei via pix!</h3>
+                <p>Pix.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Eu paguei via pix! .mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Buchas.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Esse marcola e bucha.</h3>
+                <p>marcola e bucha.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Esse Marcola ai e bucha.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/sistema.png" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>O programa não esta abrindo.</h3>
+                <p>Eu paguei.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/O programa não esta abrindo .mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/John me mata.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Não John me mata.</h3>
+                <p>Não John me mata.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/não john me mata..mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Melhorsinho.jpg" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Alex o melhozinho.</h3>
+                <p>Esse Alex ainda e o melhozinho.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Esse Alex ainda e o melhosinho.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+         
+        <div class="download-item">
+            <img src="Arquivos/Imagens/pelo amor.png" alt="Imagem do Áudio 2" width="100">
+            <div>
+                <h3>Pelo amor de Deus.</h3>
+                <p>Regulariza o meu programa.</p>
+                <audio controls>
+                  <source src="Arquivos/Audios/Pelo amor de Deus.mp3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section id="Ativadores" class="content-section" style="display: none;">
+        <h2>Ativadores</h2>
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Favico/Ativador office 2013.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>AtivadorOffice 2013</h3>
+                <p>Ativador do office 2013.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Office 2013 Permanent Activator.rar" download>Baixar</a>
+            </div>
+        </div>
+        
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Ativador Windows 10.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Ativador Windows 10</h3>
+                <p>Ativa o Windows 10 - Todas as Versões.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Ativador Windows 10.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Windows 7 Loader.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Windows Loader v2.0.1</h3>
+                <p>Ativa o Windows 7 - Todas as Versões.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Windows Loader v2.0.1.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/kmspico.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>KMSpico</h3>
+                <p>Permite ativar múltiplas versões do Microsoft Windows e Office.</p>
+                <a class="download-button" href="Arquivos/Donwloads/kmspico.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Ativador office2019.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Ativador Office 2019</h3>
+                <p>Permite ativar Office 2019.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Ativador Office 2019.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/ApowerREC-crack.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3> ApowerREC crack</h3>
+                <p>crack do programa ApowerREC .</p>
+                <a class="download-button" href="Arquivos/Donwloads/Crack ApowerREC.rar" download>Baixar</a>
+            </div>
+        </div>
+
+
+
+
+
+
+    </section>
+
+
+                            <!-- Links  -->
+
+
+    <section id="links" class="content-section" style="display: none;">
+        <h2>Links</h2>
+        <ul class="link-list">
+            <li><a href="https://app.unichatbot.com.br/" target="_blank">Unichatbot 🤖</a></li>
+            <li><a href="https://gestor.unitechsistemas.com/financeiro" target="_blank">Gestor 🧑‍💻</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1ZD4xogO-_DHWIvXlruXXaesXDzqvgyV9" target="_blank">Google Driver📥</a></li>
+            <li><a href="https://menucheff.unitechsistemas.com.br/" target="_blank">Menucheff 2 Gestor ⚙️</a></li>
+            <li><a href="https://app.menucheff.unitechsistemas.com.br/2673" target="_blank">Menucheff 2 Cliente 🖥️</a></li>
+            <li><a href="https://cardapiodigital.menucheff.com/1m2673" target="_blank">Cardapio 📑</a></li>
+            <li><a href="https://unidesk.unitechsistemas.com.br/inicio" target="_blank">Unidesk 📊</a></li>
+            <li><a href="https://sintegra.sefaz.to.gov.br/sintegra/servlet/wpsico01" target="_blank">Sintegra</a></li>
+            <li><a href="https://appdelivery.menucheff.com/gestor" target="_blank">Menucheff 1 Gestor ⚙️</a></li>
+            <li><a href="https://appdelivery.menucheff.com/2673" target="_blank">Menucheff 1 Cliente 🖥️</a></li>
+            <li><a href="http://177.0.30.38:8080/" target="_blank">Teste de porta 🌎</a></li>
+        </ul>
+    </section>
+
+    <!-- Nova seção de "Serviços -->
+    <section id="services" class="content-section" style="display: none;">
+
+    
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> UniTablet</span></h2>  <!-- Titulo da guia interna HEHEH-->
+
+
+        <!-- UniTablet -->
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/tablet.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniTablet - 13.7 32 Bits</h3>
+                <p>UniTablet.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniTablet - 13.7 32 Bits.rar" download>Baixar</a>
+            </div>
+        </div>
+         
+        <div class="download-item">
+            <img src="Arquivos/Imagens/tablet.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniTablet - 13.6 32 Bits</h3>
+                <p>UniTablet.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniTablet - 13.6 32 Bits.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/tablet.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniTablet - 13.5 32 Bits</h3>
+                <p>UniTablet.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniTablet - 13.5 32 Bits.rar" download>Baixar</a>
+            </div>
+        </div>
+
+         <!-- Servidor Impressão -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Servidor de Impressão </span></h2>   <!-- Titulo da guia interna HEHEH-->
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/impressão.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Uni Servidor Impressão 2.53 </h3>
+                <p>Servidor Impressão.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniServidor Impressão 2.53.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/impressão.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Uni Servidor Impressão 2.52 </h3>
+                <p>Servidor Impressão.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniServidorImpressao 2.52.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/impressão.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Uni Servidor Impressão 2.49 </h3>
+                <p>Servidor Impressão.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniServidorImpressao 2.49.exe" download>Baixar</a>
+            </div>
+        </div>
+
+         <!-- Whatsapp robô -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Whatsapp robô</span></h2>   <!-- Titulo da guia interna HEHEH-->
+
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/whatsapp.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniWhatsApp - v.2.19 </h3>
+                <p>Instalador do UniWhatsApp - v.2.19. <br><span style="color: rgb(230, 39, 39); font-weight: bold;">( Instalador )</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/Atualização - UniWhatsApp - v.2.19.exe" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/whatsapp.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniWhatsApp - v 4.0 </h3>
+                <p>Atualização UniWhatsApp - v 4.0. <br><span style="color: rgb(17, 21, 247); font-weight: bold;">( atualizador )</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/UniWhatsApp_MenuCheff v 4.0.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/whatsapp.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Pasta Dados</h3>
+                <p><span style="color: rgb(182, 17, 247); font-weight: bold;">( Pasta com as informações do cliente. )</span> </p>
+                <a class="download-button" href="Arquivos/Donwloads/Dados.zip" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/whatsapp.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>UniWhatsApp - v.3.0 (correção)  </h3>
+                <p>correção do UniWhatsApp - v.3.0 <br><span style="color: rgb(230, 39, 39); font-weight: bold;">( Instalador )</span></p>
+                <a class="download-button" href="Arquivos/Donwloads/UniRobo MenuCheff 1 - correção.zip" download>Baixar</a>
+            </div>
+        </div>
+
+       
+            <!-- AutoAtendimento -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> AutoAtendimento </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Atendimento.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>AutoAtendimento 1.17 </h3>
+                <p>Instalador do AutoAtendimento.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniAutoAtendimento1.17.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Atendimento.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>AutoAtendimento 1.16 </h3>
+                <p>Instalador do AutoAtendimento.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniAutoAtendimento1.16.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Atendimento.png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>AutoAtendimento 1.15 </h3>
+                <p>Instalador do AutoAtendimento.</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniAutoAtendimento1.15.rar" download>Baixar</a>
+            </div>
+        </div>
+  
+
+     <!-- Configuradores -->
+
+     <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Configuradores </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+     <div class="download-item">
+          <img src="Arquivos/Imagens/criacaobancodados.png" alt="Imagem do Cracker" width="100">
+          <div>
+              <h3>Criar banco de dados</h3>
+             <p>Criador de banco de dados.</p>
+             <a class="download-button" href="Arquivos/Donwloads/CriacaoBancoDados.exe" download>Baixar</a>
+         </div>
+     </div>
+     
+     <div class="download-item">
+       <img src="Arquivos/Imagens/criacaobancodados.png" alt="Imagem do Cracker" width="100">
+       <div>
+           <h3>UniConfigurador</h3>
+          <p>UniConfigurador.</p>
+          <a class="download-button" href="Arquivos/Donwloads/UniConfigurador.exe" download>Baixar</a>
+      </div>
+  </div>
+
+
+
+ <!-- Mysql -->
+
+ <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Mysql </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+ <div class="download-item">
+     <img src="Arquivos/Imagens/mysqlserviço..jpg" alt="Imagem do Cracker" width="100">
+     <div>
+         <h3>Instalador MySQL</h3>
+         <p>Instalador do serviço Mysql</p>
+         <a class="download-button" href="Arquivos/Donwloads/install_mysql_service.rar" download>Baixar</a>
+     </div>
+ </div>
+
+ <div class="download-item">
+     <img src="Arquivos/Imagens/mysqlserviço..jpg" alt="Imagem do Cracker" width="100">
+     <div>
+         <h3>Desinstalador MySQL</h3>
+         <p>Desinstalador do serviço Mysql</p>
+         <a class="download-button" href="Arquivos/Donwloads/uninstall_mysql_service.rar" download>Baixar</a>
+     </div>
+ </div>
+
+
+<!-- Banco para Implantação  -->
+
+<h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Banco de Dados</span></h2> <!-- Titulo da guia interna HEHEH-->
+
+<div class="download-item">
+     <img src="Arquivos/Imagens/Bancodedados.png" alt="Imagem do Cracker" width="100">
+     <div>
+         <h3>Banco para Implantação</h3>
+        <p>Banco de dados com todas as configurações prontas plano de contas, gestor web, regra tributaria, Pix manual etc. .</p>
+        <a class="download-button" href="Arquivos/Donwloads/Banco para Implantação.rar" download>Baixar</a>
+    </div>
+</div>
+
+
+
+
+  <!-- Menucheff 2  -->
+
+  <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Menucheff 2 </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+  <div class="download-item">
+       <img src="Arquivos/Imagens/menuchef2.png" alt="Imagem do Cracker" width="100">
+       <div>
+           <h3>MenuCheff 2 v1.1.79</h3>
+          <p>Instalador do MenuCheff Setup -1.1.79 .</p>
+          <a class="download-button" href="Arquivos/Donwloads/MenuCheff-Desktop-Setup-1.1.79.exe" download>Baixar</a>
+      </div>
+  </div>
+
+
+
+               <!-- Gestor Integrador -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Gestor Web Integrado </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+        <div class="download-item">
+             <img src="Arquivos/Imagens/gestor.jpg" alt="Imagem do Cracker" width="100">
+             <div>
+                 <h3>Gestor Integrador 1.12</h3>
+                <p>Instalador do Gestor Integrador web 1.12.</p>
+                <a class="download-button" href="Arquivos/Donwloads/Gestor Integrador Install 1.12.rar" download>Baixar</a>
+            </div>
+        </div>
+
+              
+
+        
+         
+          <!-- ApiDelivery -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> ApiDelivery </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/Uniapidelivery.jpg" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Uni Api Delivery Web - v.3.7</h3>
+                <p>UniApiDeliveryWeb - v.3.7</p>
+                <a class="download-button" href="Arquivos/Donwloads/UniApiDeliveryWeb - v.3.7 03-06-22--11-43 .zip" download>Baixar</a>
+            </div>
+        </div>
+
+       
+ 
+        <!-- Etiquetas -->
+
+        <h2><span style="color: rgb(6, 8, 138); font-weight: bold;"> Etiquetas </span></h2> <!-- Titulo da guia interna HEHEH-->
+
+        <div class="download-item">
+            <img src="Arquivos/Imagens/etiquetas..png" alt="Imagem do Cracker" width="100">
+            <div>
+                <h3>Etiquetas</h3>
+                <p>Etiquetas de Varios tamanhos</p>
+                <a class="download-button" href="Arquivos/Donwloads/Etiquetas.rar" download>Baixar</a>
+            </div>
+        </div>
+
+        
+
+        <!-- Nessa seletion eu posso adicionar mais guias  HEHEHE  -->
+
+    </section>
+
+    <footer>
+        <p style="margin: 0;">© 2024 Patuvêr Downloads. 🦆</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            var selectedPage = document.getElementById(pageId);
+            selectedPage.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
