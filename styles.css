@@ -1,0 +1,232 @@
+/*Esse John é buxa*/
+        /* codigos para deixar  a página responsiva  HEHEH */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /*padding-top: 80px; */  /* Ajusta o padding-top para compensar o cabeçalho fixo */
+    background-image: url('Arquivos/Fundo/desktop.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Aqui eu fixe a imagem do fundo HEHEHEH */
+}
+
+header {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    width: 100%; /* Define a largura total */
+    top: 0; /* Alinha o cabeçalho no topo */
+    position: sticky;
+    z-index: 999;
+}
+
+.logo {
+    margin: 0;
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background-color: #191d27;
+    overflow: hidden;
+    text-align: center; /* Centraliza as guias */
+    width: 100%; /* Define a largura total */
+    top: 120px; /* Define a posição da nav abaixo do cabeçalho */
+    z-index: 1000; /* Define a ordem de empilhamento */
+}
+
+nav a {
+    display: inline-block; /* Altera para display inline-block */
+    color: white;
+    text-align: center;
+    padding: 14px 20px; /* Ajusta o espaçamento horizontal */
+    text-decoration: none;
+    font-size: 17px;
+    transition: transform 0.2s; /* Adiciona transição de 0.2s para suavizar a animação */
+}
+
+nav a:hover {
+    background-color: #000003; /* Nessa opção, eu mudo a cor do fundo da caixa ao passar o mouse sobre */ 
+    color: #f8f8f8;
+    transform: translate(0, -2px); /* Faz a guia vibrar para cima ao passar o mouse */
+}
+
+.download-item {
+    margin-bottom: 13px; /* Nessa opção eu altero o tamanho abaixo entre as caixas */
+    border: 2px solid #cac8c8; /* Nessa opção eu mudo o tamanho da sombra */
+    padding: 10px; /* Nessa opção eu altero o tamanho das caixas */
+    overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 11px; /* Nessa opção eu deixo mais aredondada */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: calc(33.33% - 20px);
+    display: inline-block;
+    margin-right: 0px; /* Nessa opção, eu altero o tamanho lateral esquerda entre as caixas. */
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.download-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.download-item:hover {
+    transform: translateY(-3px);
+}
+
+.download-item img {
+    float: left;
+    margin-right: 20px;  /* Nessa opção eu defino o espaço entre foto e nome */
+    border-radius: 20px; /* Nessa opção eu deixo as fotos quadradas ou redondas dos arquivos */
+}
+
+.download-item h3 {
+    margin-top: 10px; /* Nessa opção eu o botão Donwload o lugar  */
+}
+
+.download-button {
+    background-color: #28a745;
+    color: #eeecec;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.download-button:hover {
+    background-color: #29be15;  /*Aqui eu defini a cor verde para o botão HEHEHE */
+}
+
+.link-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.link-list li {
+    margin-bottom: 10px; /* Aqui eu deixo ele verdinho ao passar o mouse sobre HEHEHE */
+}
+
+.link-list li a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #1c2029;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.link-list li a:hover {
+    background-color: #535658;
+    transform: translateY(-3px);
+}
+
+.content-section {
+    padding: 20px;
+}
+
+#pesquisa {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+
+
+}
+
+#pesquisa div {
+    width: 100%;
+    
+    
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    position: fixed; /* Fixa o rodapé na parte inferior */
+    z-index: 1000; /* Define a ordem de empilhamento */
+}
+
+/* Aqui eu edito o CSS da caixa de senha HEHEHE */
+#dialog-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: center center no-repeat; /* Aqui eu centralizo a imagen*/
+    background-size: cover; /* Aqui e para garantia que a imagem cubra todo o overlay HEHEH */
+    
+}
+
+#dialog-box {
+    background: url('Arquivos/Imagens/Fundosenha.png') center center no-repeat;
+    background-size: cover;
+    border-radius: 15px; /* Aqui eu modifico as bordas da caixa da senha*/
+    padding: 20px; /* Nesse campo eu defino a altura da caixa*/ 
+    width: 300px; /* Nesse campo defino a largura da caixa de senha  "Lá ele!"  HEHEHEH */
+    text-align: center;
+    border: 2px solid #000; /* deixo a borda preta borda preta em volta da caixa*/
+    animation: slide-up 1.880s forwards; /* Aqui eu defino a velocidade da a animação slide-up */
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(40%); /* Aqui e onde a caixa começar de 100% abaixo e sobe HEHEH  */
+    }
+    to {
+        transform: translateY(0); /* Aqui e onde a caixa para termina em 0 (no topo HEHEH ) */
+    }
+}
+
+/* Adicionando regras de mídia para telas menores */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: row; /* Altera a direção para linha */
+        flex-wrap: nowrap; /* Impede a quebra de linha */
+        overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+        justify-content: center; /* Centraliza os itens */
+    }
+    nav a {
+        flex: 1;  /* Distribui igualmente o espaço entre os itens */
+        min-width: 0;  /* Remove a margem direita */
+    }
+    .download-item {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+.esconder {
+    display: none;
+
+}
+
+/* Aqui defini o fundo para o mobile HEHEHEH */
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url('Arquivos/Fundo/Mobile.jpeg');
+        background-attachment: fixed;
+    }
+}
+
+
+.tabcontent .box {
+    border: 1px solid #ccc; /* Adiciona borda ao redor do conteúdo da aba */
+    border-radius: 5px; /* Arredonda as bordas da caixa */
+    padding: 8px; /* Adiciona espaçamento interno */
+    margin-bottom: 10px; /* Adiciona espaçamento inferior entre as caixas */
+}
