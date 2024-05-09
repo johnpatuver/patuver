@@ -1,3 +1,4 @@
+console.log ("so de boa nessa")
 // Função para mostrar a página correspondente ao link clicado
 function showPage(pageId, displayMode = 'block') {
     var sections = document.querySelectorAll('section');
