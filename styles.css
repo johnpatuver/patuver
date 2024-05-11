@@ -192,7 +192,7 @@ footer {
     }
 }
 
-/* Adicionando regras de mídia para telas menores */
+/* Adicionando regras de mídia para as telas menores do celular e tablet saca EHEHE */
 @media screen and (max-width: 768px) {
     nav {
         flex-direction: row; /* Altera a direção para linha */
@@ -225,8 +225,8 @@ footer {
 
 
 .tabcontent .box {
-    border: 1px solid #ccc; /* Adiciona borda ao redor do conteúdo da aba */
-    border-radius: 5px; /* Arredonda as bordas da caixa */
-    padding: 8px; /* Adiciona espaçamento interno */
-    margin-bottom: 10px; /* Adiciona espaçamento inferior entre as caixas */
+    border: 1px solid #ccc; /* Adiciona borda ao redor do conteúdo da abinha meu santo */
+    border-radius: 5px; /* Arredonda as bordas da caixa eu acho que assim fica mais bonito*/
+    padding: 8px; /* aqui eu Adiciono o espaçamento interno */
+    margin-bottom: 10px; /* aqui Adiciona espaçamento inferior entre as caixas para ficar mais top  */
 }

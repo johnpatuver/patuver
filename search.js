@@ -1,4 +1,7 @@
 const dados = {
+    
+    // esse codigo foi feito apenas para nas pesquisa tira o titulo da div mas acabei desistinto e muito trabalho HEHEHEHEH  bucha vei 
+    
     programas: [
         {
             titulo: "Defender Control v1.9",
